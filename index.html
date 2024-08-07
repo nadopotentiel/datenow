@@ -41,11 +41,11 @@
         .card {
             padding: 10px 25px;
             border-radius: 10px;
-            background: #553c4e;
+            background: #380541; /* Couleur modifiée */
             width: 85vw;
             color: #fff;
             display: inline-block;
-            box-shadow: 2px 2px 1px 0px #330835;
+            box-shadow: 2px 2px 1px 0px #220326; /* Couleur modifiée */
         }
 
         .card:hover {
@@ -113,19 +113,16 @@
             var hour = zeros(twelveHour(today.getHours()));
             var minutes = zeros(today.getMinutes());
             var seconds = zeros(today.getSeconds());
-            if (today.getHours() >= 12) {
-                seconds += " pm"
-            } else {
-                seconds += " am"
-            }
             var hrs = today.getHours();
             var greet;
-            if (hrs < 12)
+
+            if (hrs < 12) {
                 greet = 'Bonjour ';
-            else if (hrs >= 12 && hrs <= 17)
+            } else if (hrs >= 12 && hrs <= 17) {
                 greet = 'Bon après-midi ';
-            else if (hrs >= 17 && hrs <= 24)
+            } else {
                 greet = 'Bonsoir ';
+            }
 
             document.getElementById('greet').innerHTML = greet;
             document.getElementById('hour').innerHTML = hour;
@@ -135,19 +132,16 @@
 
         function twelveHour(hour) {
             if (hour > 12) {
-                return hour -= 12
+                return hour -= 12;
             } else if (hour === 0) {
                 return hour = 12;
             } else {
-                return hour
+                return hour;
             }
         }
 
         function zeros(num) {
-            if (num < 10) {
-                num = '0' + num
-            }
-            return num;
+            return num < 10 ? '0' + num : num;
         }
 
         function dateTime() {
@@ -160,3 +154,4 @@
     </script>
 </body>
 </html>
+
